@@ -26,8 +26,8 @@ export const QuestionList = ({
               <p>{text}</p> :
               <div className="video-responsive">
                 <iframe
-                  width="420"
-                  height="240"
+                  width="300"
+                  height="200"
                   src={`https://www.youtube.com/embed/${text}`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -36,7 +36,7 @@ export const QuestionList = ({
               </div>
             }
           </label>
-          {mem && <div className="mem"> <img src={mem} width='500' alt='mem' /></div>}
+          {mem && <div className="mem"> <img src={mem} width='500' alt='mem' className="mem__img"/></div>}
         </>
       ))}
 

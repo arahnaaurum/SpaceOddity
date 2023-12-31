@@ -43,7 +43,7 @@ function App() {
             />
           }
           {page > 0 && page <= QUESTIONS.length && !folks &&
-            <>
+            <div className='questions'>
               <QuestionList
                 page={page}
                 setCurrentAnswer={setCurrentAnswer}
@@ -51,12 +51,20 @@ function App() {
               <button className='button' onClick={handleClick}>
                   Дальше
               </button>
-            </>
+            </div>
           }
           {page > QUESTIONS.length && !folks &&
             <>
               {calculateScore()}
-              <button className='button' onClick={() => setFolks(true)}>Спасибо за игру!</button>
+              <div className='btn_folks'>
+                <button className='button' onClick={() => setFolks(true)}>That's all, folks!</button>
+                <button className='button' onClick={() => {
+                  setPage(0);
+                  setCurrentAnswer(0);
+                  setScore([]);
+                  setFolks(false);
+                }}>Сыграть снова</button>
+              </div>
             </>
           }
           {folks && <>
@@ -71,7 +79,7 @@ function App() {
         </div>
       </main>
       <footer className='footer'>
-        (c) <a href='https://acomics.ru/~spaceoddity'>Space Oddity</a>  by natlalihuitl
+        (c) <a href='https://acomics.ru/~spaceoddity'>Space Oddity</a> by natlalihuitl
       </footer>
     </div>
   );
